@@ -1,0 +1,261 @@
+
+create database canvia
+
+
+select * from Categoria
+
+
+CREATE TABLE Categoria(
+ID CHAR(4) NOT NULL,
+Descripcion varchar(60) not null default('')
+constraint pk_Categori primary key(ID)
+)
+
+  select * from Producto
+
+CREATE TABLE Producto
+(
+ID CHAR (4) NOT NULL ,
+Descripcion varchar (60) NOT NULL DEFAULT(''),
+Precio numeric (16,2) not null default(0),
+Cantidad numeric (10,2) not null DEFAULT(0),
+CategoriaID char (4) NOT NULL,
+CONSTRAINT PKProducto PRIMARY KEY (ID),
+FOREIGN KEY (CategoriaID) REFERENCES Categoria(ID) 
+)
+
+
+CREATE PROC PROC_CATEGORIA_NS
+(@ID CHAR(4), 
+@Descripcion VARCHAR(60))
+AS  
+BEGIN  
+INSERT INTO Categoria(ID,Descripcion) VALUES(@ID,@Descripcion)
+select * from Categoria order by ID
+END 
+
+CREATE PROC UPDATE_CATEGORIA
+(@ID CHAR(4), 
+@Descripcion VARCHAR(60))
+AS  
+BEGIN  
+UPDATE Categoria SET Descripcion=@Descripcion WHERE ID=@ID
+select * from Categoria order by ID
+END 
+
+EXEC UPDATE_CATEGORIA '23','TECNOLOGIA'
+
+--LISTA DE CATEGORIAS 
+
+CREATE PROC LIS_CATEGORIA
+AS
+BEGIN 
+SELECT * FROM Categoria
+END
+EXEC LIS_CATEGORIA
+------------
+---lista categoria por codigo
+
+CREATE PROC LIS_XCODIGOCATE(@ID CHAR(4))
+AS
+BEGIN 
+SELECT * FROM Categoria WHERE ID=@ID
+END
+
+EXEC LIS_XCODIGOCATE @ID='s3'
+
+--------------------
+-----DELETE CATEGORIA
+
+CREATE PROC DEL_CATEGORIA(@ID CHAR(4))
+AS
+BEGIN 
+DELETE FROM Categoria WHERE ID=@ID
+SELECT * FROM Categoria
+END
+
+EXEC DEL_CATEGORIA '1'
+---------------
+---- LISTA DE CATEGORIA PAGINADO
+CREATE PROCEDURE LIST_PAGINADO_CATEGORIA
+      @PageIndex INT = 1
+      ,@PageSize INT = 10
+      ,@RecordCount INT OUTPUT
+AS
+BEGIN
+      SET NOCOUNT ON;
+      SELECT ROW_NUMBER() OVER
+      (
+            ORDER BY [ID] ASC
+      )AS RowNumber
+      ,[ID]
+      ,[Descripcion]
+      INTO #Results
+      FROM [Categoria]
+     
+      SELECT @RecordCount = COUNT(*)
+      FROM #Results
+           
+      SELECT * FROM #Results
+      WHERE RowNumber BETWEEN(@PageIndex -1) * @PageSize + 1 AND(((@PageIndex -1) * @PageSize + 1) + @PageSize) - 1
+     
+      DROP TABLE #Results
+END
+GO
+
+
+
+--CREACION DE PRODUCTO NUEVO
+CREATE PROC PROC_PRODUCT_NS
+(@ID CHAR(4), 
+@Descripcion VARCHAR(60),
+@Precio NUMERIC(16,2),
+@Cantidad NUMERIC(16,2),
+@CategoriaID CHAR(4))  
+AS  
+BEGIN  
+INSERT INTO Producto VALUES(@ID,@Descripcion,@Precio,@Cantidad,@CategoriaID)  
+SELECT *  FROM Producto ORDER BY ID
+END  
+----------------
+--UPDATE DE PRODUCTO 
+CREATE PROC UPDATE_PRODUCTO
+(@ID CHAR(4), 
+@Descripcion VARCHAR(60),
+@Precio NUMERIC(16,2),
+@Cantidad NUMERIC(16,2),
+@CategoriaID CHAR(4))  
+AS  
+BEGIN  
+UPDATE Producto SET Descripcion=@Descripcion,Precio=@Precio,Cantidad=@Cantidad,CategoriaID=@CategoriaID WHERE ID=@ID 
+SELECT *  FROM Producto ORDER BY ID
+END  
+----------------
+--PROCEDURE CON STATEMENTYPE SOLO INSERT/UPDATE/DELETE 
+CREATE PROC PROC_CATEGORIA
+ (@ID CHAR(4), 
+ @Descripcion VARCHAR(60),
+ @StatementType NVARCHAR(20) = '')
+ AS  
+ BEGIN 
+     IF @StatementType = 'Insert'
+	 BEGIN
+        INSERT INTO Categoria(ID,Descripcion) VALUES(@ID,@Descripcion)  
+
+     END
+	 
+      IF @StatementType = 'Update'
+        BEGIN
+            UPDATE Categoria
+            SET    Descripcion = @Descripcion      
+            WHERE  ID = @ID
+        END
+		
+       IF @StatementType = 'Delete'
+        BEGIN
+           DELETE FROM Categoria
+           WHERE  ID = @ID
+          SELECT * FROM Categoria
+		 END
+		 
+		SELECT *FROM Categoria
+END 
+
+-----DELETE PRODUCTO--------
+CREATE PROC DEL_PRODUCTO(@ID CHAR(4))
+AS
+BEGIN 
+DELETE FROM Producto WHERE ID=@ID
+SELECT * FROM Producto
+END
+----------------------------
+
+--LISTA DE PRODUCTO
+CREATE PROC LIST_PRODUCTO
+AS
+BEGIN
+SELECT * FROM Producto
+END
+---------------------------
+--------------LISTA DE PRODUCTO X CODIGO-------
+CREATE PROC XCOD_PRODUCTO(@ID CHAR(4))
+AS
+BEGIN 
+SELECT * FROM Producto WHERE ID=@ID
+END
+----- PROCEDURE CON STATEMENTTYPE SOLO INSERT/UPDATE/DELETE
+CREATE PROCEDURE PROC_PRODUCT (
+@ID CHAR(4), 
+@Descripcion VARCHAR(60),
+@Precio NUMERIC(16,2),
+@Cantidad NUMERIC(16,2),
+@CategoriaID CHAR(4),
+@StatementType NVARCHAR(20) = '')
+AS
+  BEGIN
+      IF @StatementType = 'Insert'
+        BEGIN
+            INSERT INTO Producto
+                        (ID,
+                         Descripcion,
+                         Cantidad,
+                         Precio,
+                         CategoriaID)
+            VALUES     ( @ID,
+                         @Descripcion,
+                         @Cantidad,
+                         @Precio,
+                         @CategoriaID)
+        END
+
+
+      IF @StatementType = 'Update'
+        BEGIN
+            UPDATE Producto
+            SET    Descripcion = @Descripcion,
+                   Cantidad = @Cantidad,
+                   Precio = @Precio,
+                   CategoriaID = @CategoriaID
+            WHERE  ID = @ID
+        END
+      ELSE IF @StatementType = 'Delete'
+        BEGIN
+            DELETE FROM Producto
+            WHERE  ID = @ID
+        END
+		SELECT * FROM Producto
+  END
+
+
+
+  -----LISTA PAGINADA DE PRODUCTO
+  CREATE PROCEDURE LIST_PAGINADO_PRODUCTO
+      @PageIndex INT = 1
+      ,@PageSize INT = 10
+      ,@RecordCount INT OUTPUT
+AS
+BEGIN
+      SET NOCOUNT ON;
+      SELECT ROW_NUMBER() OVER
+      (
+            ORDER BY [ID] ASC
+      )AS RowNumber
+      ,[ID]
+      ,[Descripcion]
+	  ,[Precio]
+	  ,[Cantidad]
+	  ,[CategoriaID]
+      INTO #Results
+      FROM [Producto]
+     
+      SELECT @RecordCount = COUNT(*)
+      FROM #Results
+           
+      SELECT * FROM #Results
+      WHERE RowNumber BETWEEN(@PageIndex -1) * @PageSize + 1 AND(((@PageIndex -1) * @PageSize + 1) + @PageSize) - 1
+     
+      DROP TABLE #Results
+END
+GO
+
+EXEC LIST_PAGINADO_PRODUCTO 1,10,3

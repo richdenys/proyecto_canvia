@@ -1,0 +1,9 @@
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\obj\Debug\app_Tservice.csproj.AssemblyReference.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\obj\Debug\app_Tservice.csproj.CoreCompileInputs.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\bin\Debug\app_Tservice.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\bin\Debug\app_Tservice.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\obj\Debug\app_Tservice.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\obj\Debug\app_Tservice.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\bin\Debug\app_Mcanvia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\bin\Debug\app_Mcanvia.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Tservice\obj\Debug\app_Tservice.csproj.CopyComplete

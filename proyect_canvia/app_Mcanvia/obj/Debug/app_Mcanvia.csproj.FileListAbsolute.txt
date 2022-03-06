@@ -1,0 +1,6 @@
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\bin\Debug\app_Mcanvia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\bin\Debug\app_Mcanvia.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\obj\Debug\app_Mcanvia.csproj.AssemblyReference.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\obj\Debug\app_Mcanvia.csproj.CoreCompileInputs.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\obj\Debug\app_Mcanvia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_Mcanvia\obj\Debug\app_Mcanvia.pdb

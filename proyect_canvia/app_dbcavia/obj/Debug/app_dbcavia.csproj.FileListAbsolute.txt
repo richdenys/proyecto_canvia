@@ -1,0 +1,11 @@
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\obj\Debug\app_dbcavia.csproj.AssemblyReference.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\obj\Debug\app_dbcavia.csproj.CoreCompileInputs.cache
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_dbcavia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_dbcavia.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_Mcanvia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_Tservice.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_Mcanvia.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\bin\Debug\app_Tservice.pdb
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\obj\Debug\app_dbcavia.csproj.CopyComplete
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\obj\Debug\app_dbcavia.dll
+C:\Users\Richard\Desktop\PROYECTO_CANVIA\proyect_canvia\app_dbcavia\obj\Debug\app_dbcavia.pdb

@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e3d6e690-e73c-465c-a367-77bc9618b505": {
+      "ProjectGuid": "e3d6e690-e73c-465c-a367-77bc9618b505",
+      "DisplayName": "proyect_canvia",
+      "ColorIndex": 0
+    },
+    "2ff7387e-1992-4191-8734-f5ef0861c6ee": {
+      "ProjectGuid": "2ff7387e-1992-4191-8734-f5ef0861c6ee",
+      "DisplayName": "app_dbcavia",
+      "ColorIndex": 1
+    },
+    "e0f8cb1b-cd7c-4a99-9304-8c9d31932f82": {
+      "ProjectGuid": "e0f8cb1b-cd7c-4a99-9304-8c9d31932f82",
+      "DisplayName": "app_Mcanvia",
+      "ColorIndex": 2
+    },
+    "0cbbb9f7-085a-498b-8183-6572221e937c": {
+      "ProjectGuid": "0cbbb9f7-085a-498b-8183-6572221e937c",
+      "DisplayName": "app_Tservice",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}
